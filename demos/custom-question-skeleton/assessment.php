@@ -16,7 +16,8 @@ $request = '{
             "scorer": "/dist/scorer.js"
           },
           "css": "/dist/question.css",
-          "instant_feedback": true
+          "instant_feedback": true,
+          "valid_response": "328"
         }
     ]
 }';
