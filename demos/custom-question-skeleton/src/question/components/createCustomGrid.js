@@ -17,6 +17,8 @@ export const createCustomGrid = () => {
         const column = document.createElement('div')
         // set each column to display as a flex-column through css class
         column.classList.add('flex-column')
+        // give each colunn a class name based on its placeholder digit
+        column.classList.add(digit)
         // place an article element at the top of each column which will display the digit selected by the button
         const digitDisplay = document.createElement('article')
         // give all 3 article elements a class of digit-display
@@ -30,5 +32,16 @@ export const createCustomGrid = () => {
 
     // create an HTML collection of the 3 columns
     const columns = document.getElementsByClassName('flex-column')
+    // loop over the collection 
+    for(let i = 0; i < columns.length; i++) {
+        const column = columns[i]
+        // for each column, inset 10 buttons using a loop
+        for(let j = 0; j < 10; j++) {
+            const button = document.createElement('button')
+            button.classList.add(j, 'number-button')
+            button.innerHTML = j
+            column.appendChild(button)
+        }
+    }
 }
 

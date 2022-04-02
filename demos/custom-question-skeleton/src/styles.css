@@ -6,22 +6,20 @@
   .grid-columns {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    border: 1px solid blue;
   }
   .flex-column {
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
   }
   
   .digit-display {
     text-align: center;
     border: 1px solid black;
+    min-height: 2.5rem;
   }
   .number-button {
-    outline: none;
-    border: none;
-    background-color: lightgreen;
+    background-color: lightgrey;
+    padding: 0.25rem;
   }
   
   
