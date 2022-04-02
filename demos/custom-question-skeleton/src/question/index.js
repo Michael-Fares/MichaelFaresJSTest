@@ -1,4 +1,5 @@
 import { PREFIX } from './constants';
+import { CustomGrid }  from './components/CustomGrid';
 
 export default class Question {
     constructor(init, lrnUtils) {
@@ -25,10 +26,11 @@ export default class Question {
         const { question, response } = init;
 
         // TODO: Requires implementation
+
         el.innerHTML = `
             <div class="${PREFIX} lrn-response-validation-wrapper">
                 <div class="lrn_response_input">
-                    Requires implementation - YOUR CONTENT GOES IN HERE
+                    
                 </div>            
                 <div class="${PREFIX}-checkAnswer-wrapper"></div>
                 <div class="${PREFIX}-suggestedAnswers-wrapper"></div>
@@ -42,7 +44,7 @@ export default class Question {
             lrnUtils.renderComponent('CheckAnswerButton', el.querySelector(`.${PREFIX}-checkAnswer-wrapper`))
         ]).then(([suggestedAnswersList]) => {
             this.suggestedAnswersList = suggestedAnswersList;
-
+            CustomGrid()
            
         });
     }
