@@ -35,10 +35,10 @@ export const createCustomGrid = () => {
     // loop over the collection 
     for(let i = 0; i < columns.length; i++) {
         const column = columns[i]
-        // for each column, inset 10 buttons using a loop
+        // for each column, inset 10 buttons using another loop
         for(let j = 0; j < 10; j++) {
             const button = document.createElement('button')
-            // give the button a class for styling, and also classes refencing its value and its digit-place. 
+            // give the button a class for styling, and also classes referencing its value and its digit-place. 
             button.classList.add(j, digits[i], 'number-button')
             button.innerHTML = j
             column.appendChild(button)
@@ -46,23 +46,33 @@ export const createCustomGrid = () => {
             // add event an listener to butttons to populate the correct digit place article element
 
             button.addEventListener('click', () => {
+
+            // if there is a button already selected in the column
+            // then deselect it before selecting the button just clicked
+            const otherButtons = button.parentNode.children
+            Array.from(otherButtons).forEach((button) => {
+                if(button.classList.contains('selected')) {
+                    button.classList.remove('selected')
+                }
+            })
+                   
                 if(button.classList.contains('hundreds')) {
                     const hundredsPlace = document.querySelector('#hundreds')
                     hundredsPlace.innerHTML = button.innerHTML
+                    button.classList.add('selected')
                 }
                 if(button.classList.contains('tens')) {
                     const tensPlace = document.querySelector('#tens')
                     tensPlace.innerHTML = button.innerHTML
+                    button.classList.add('selected')
                 }
                 if(button.classList.contains('ones')) {
                     const onesPlace = document.querySelector('#ones')
                     onesPlace.innerHTML = button.innerHTML
+                    button.classList.add('selected')
                 }
             })
         }
     }
-
-    
-    
 }
 
