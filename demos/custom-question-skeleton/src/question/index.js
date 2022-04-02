@@ -1,5 +1,5 @@
 import { PREFIX } from './constants';
-import { CustomGrid }  from './components/CustomGrid';
+import { createCustomGrid }  from './components/createCustomGrid';
 // import custom styles for the custom question
 import '../styles.css'
 
@@ -47,7 +47,7 @@ export default class Question {
             lrnUtils.renderComponent('CheckAnswerButton', el.querySelector(`.${PREFIX}-checkAnswer-wrapper`))
         ]).then(([suggestedAnswersList]) => {
             this.suggestedAnswersList = suggestedAnswersList;
-            CustomGrid()
+            createCustomGrid()
            
         });
     }

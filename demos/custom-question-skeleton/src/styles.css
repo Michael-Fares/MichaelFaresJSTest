@@ -1,26 +1,27 @@
-.number-button {
-    color: red;
-}
-  
-.lrn_response_input {
-    display: flex;
-}
-
 .question-container {
     width: 50%;
     margin: 0 auto;
   }
   
-  .grid-row {
+  .grid-columns {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    border: 1px solid blue;
   }
   .flex-column {
     display: flex;
     flex-direction: column;
+    border: 1px solid red;
   }
   
   .digit-display {
     text-align: center;
     border: 1px solid black;
   }
+  .number-button {
+    outline: none;
+    border: none;
+    background-color: lightgreen;
+  }
+  
+  
