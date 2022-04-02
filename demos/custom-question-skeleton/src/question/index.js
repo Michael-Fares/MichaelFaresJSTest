@@ -1,5 +1,8 @@
 import { PREFIX } from './constants';
 import { CustomGrid }  from './components/CustomGrid';
+// import custom styles for the custom question
+import '../styles.css'
+
 
 export default class Question {
     constructor(init, lrnUtils) {
@@ -30,7 +33,7 @@ export default class Question {
         el.innerHTML = `
             <div class="${PREFIX} lrn-response-validation-wrapper">
                 <div class="lrn_response_input">
-                    
+                  <div class="question-wrapper"></div>  
                 </div>            
                 <div class="${PREFIX}-checkAnswer-wrapper"></div>
                 <div class="${PREFIX}-suggestedAnswers-wrapper"></div>
