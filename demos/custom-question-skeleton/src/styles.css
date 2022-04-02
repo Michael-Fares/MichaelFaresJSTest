@@ -5,3 +5,22 @@
 .lrn_response_input {
     display: flex;
 }
+
+.question-container {
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  .grid-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .digit-display {
+    text-align: center;
+    border: 1px solid black;
+  }
