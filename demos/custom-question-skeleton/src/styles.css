@@ -1,9 +1,9 @@
-.question-container {
-    width: 50%;
-    margin: 0 auto;
-  }
+.lrn_stimulus_content, .digit-display {
+  font-weight: bold;
+}
   
   .grid-columns {
+    width: 30%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -14,12 +14,24 @@
   
   .digit-display {
     text-align: center;
-    border: 1px solid black;
+    border-top: 1px solid black;
     min-height: 2.5rem;
+    padding-top: 0.5rem;
+  }
+  #hundreds {
+    border-left: 1px solid black;
+  }
+  #ones {
+    border-right: 1px solid black;
   }
   .number-button {
     background-color: lightgrey;
     padding: 0.25rem;
+    border: 1px solid #777;
   }
+  .selected {
+    background-color: royalblue;
+  }
+
   
   
