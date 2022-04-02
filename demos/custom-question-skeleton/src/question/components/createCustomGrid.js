@@ -38,10 +38,31 @@ export const createCustomGrid = () => {
         // for each column, inset 10 buttons using a loop
         for(let j = 0; j < 10; j++) {
             const button = document.createElement('button')
-            button.classList.add(j, 'number-button')
+            // give the button a class for styling, and also classes refencing its value and its digit-place. 
+            button.classList.add(j, digits[i], 'number-button')
             button.innerHTML = j
             column.appendChild(button)
+
+            // add event an listener to butttons to populate the correct digit place article element
+
+            button.addEventListener('click', () => {
+                if(button.classList.contains('hundreds')) {
+                    const hundredsPlace = document.querySelector('#hundreds')
+                    hundredsPlace.innerHTML = button.innerHTML
+                }
+                if(button.classList.contains('tens')) {
+                    const tensPlace = document.querySelector('#tens')
+                    tensPlace.innerHTML = button.innerHTML
+                }
+                if(button.classList.contains('ones')) {
+                    const onesPlace = document.querySelector('#ones')
+                    onesPlace.innerHTML = button.innerHTML
+                }
+            })
         }
     }
+
+    
+    
 }
 
