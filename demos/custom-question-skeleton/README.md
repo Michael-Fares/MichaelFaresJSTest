@@ -8,7 +8,7 @@ Once your custom question is ready, run this script and copy it to your server.
 ```
 yarn prod
 ```
-* Test your scorer's behavior in the server side. Update question/response in `debugeServerScorer.js` to test
+* Test your scorer's behavior in the server side. Update question/response in `debugServerScorer.js` to test
 ```
 yarn debug-server-scorer
 ```

@@ -5,6 +5,7 @@ export default class Question {
         this.init = init;
         this.events = init.events;
         this.lrnUtils = lrnUtils;
+        // appears to be using JQuery? $
         this.el = init.$el.get(0);
 
         this.render().then(() =>{
@@ -42,7 +43,7 @@ export default class Question {
         ]).then(([suggestedAnswersList]) => {
             this.suggestedAnswersList = suggestedAnswersList;
 
-            // TODO - Requires implementation
+           
         });
     }
 
