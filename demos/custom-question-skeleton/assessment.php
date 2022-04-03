@@ -17,18 +17,11 @@ $request = '{
           },
           "css": "/dist/question.css",
           "instant_feedback": true,
-         "valid_response": {
-            "type": "object",
-            "value": {
-                "hundreds": 3,
-                "tens": 2,
-                "ones": 8,
-            }
-          },
-          "instant_feedback": true
+          "valid_response": "328"
         }
     ]
 }';
+
 $requestData = json_decode($request, true);
 
 $signedRequest = signAssessmentRequest($requestData);
