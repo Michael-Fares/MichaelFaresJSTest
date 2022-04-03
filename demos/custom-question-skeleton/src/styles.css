@@ -1,9 +1,12 @@
-.lrn_stimulus_content, .digit-display {
-  font-weight: bold;
-}
-  
+
+  .lrn_stimulus_content, .digit-display {
+    font-weight: bold;
+  }
+  .question-wrapper {
+    margin: 0 3rem;
+    max-width: 600px;
+  }
   .grid-columns {
-    width: 30%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
