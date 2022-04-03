@@ -10,7 +10,16 @@ export default class Scorer {
      * @returns {boolean}
      */
     isValid() {
-        // TODO: Requires implementation
+        // get the values, for the hundreds, tens, and ones the
+        // user submitted as the saved responses object
+        // as an array by passing this.response.value into the Object.values method
+        // and then join that array into string
+        // and save to a varible called usersResponse
+        const usersResponse = Object.values(this.response.value).join("")
+        
+        // return true if it is equal to the valid response supplied on the question JSON
+        if(this.question.valid_response === usersResponse) return true
+        // otherwise return false
 
         return false;
     }

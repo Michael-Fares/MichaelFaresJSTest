@@ -18,15 +18,9 @@ const questionResponseJson = {
             scorer: "/dist/scorer.js"
           },
           css: "/dist/question.css",
-          valid_response: {
-            type: "object",
-            value: {
-                "hundreds": 3,
-                "tens": 2,
-                "ones": 8,
-            }
-          },
-          "instant_feedback": true
+          instant_feedback: true,
+          valid_response: "328",
+          max_score: 1
    },
    response: {
     type: "object",

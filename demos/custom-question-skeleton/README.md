@@ -12,3 +12,4 @@ yarn prod
 ```
 yarn debug-server-scorer
 ```
+server
