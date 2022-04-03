@@ -124,20 +124,13 @@ export default class Question {
 
        events.trigger('changed', responses);
 
-       this.init.response = Object.values(responses).join("")
-
-       console.log(this.init.response)
-
-       
-
-
         // "validate" event can be triggered when Check Answer button is clicked or when public method .validate() is called
         // so developer needs to listen to this event to decide if he wants to display the correct answers to user or not
         // options.showCorrectAnswers will tell if correct answers for this question should be display or not.
         // The value showCorrectAnswers by default is the value of showCorrectAnswers inside initOptions object that is used
         // to initialize question app or the value of the options that is passed into public method validate (like question.validate({showCorrectAnswers: false}))
         events.on('validate', options => {
-            console.log(responses)
+            console.log('response at question', responses)
         });
     }
 }
