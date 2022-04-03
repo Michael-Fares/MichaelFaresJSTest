@@ -2,6 +2,12 @@
 export const createCustomGrid = () => {
     // get the question wrapper div placed at the center of the markup in question/index.js
     const question = document.querySelector('.question-wrapper');
+    // create an h2 as a display box to give the user written feedback 
+    // in addition to color changes in UI
+    const writtenFeedbackDisplay = document.createElement('h2')
+    question.appendChild(writtenFeedbackDisplay)
+    writtenFeedbackDisplay.classList.add('feedback')
+
 
      // create a 3 column grid layout via a div wrapper, and place it in the question wrapper
      const grid = document.createElement('div')

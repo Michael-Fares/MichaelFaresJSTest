@@ -12,12 +12,6 @@
     flex-direction: column;
   }
   
-  .digit-display {
-    text-align: center;
-    border-top: 1px solid black;
-    min-height: 2.5rem;
-    padding-top: 0.5rem;
-  }
   #hundreds {
     border-left: 1px solid black;
   }
@@ -28,16 +22,40 @@
     background-color: lightgrey;
     padding: 0.25rem;
     border: 1px solid #777;
+    transition: ease all 0.5s;
   }
   .selected {
     background-color: royalblue;
   }
-
+  .digit-display {
+    text-align: center;
+    border-top: 1px solid black;
+    min-height: 2.5rem;
+    padding-top: 0.5rem;
+    transition: ease 0.5s all;
+  }
   .correct-response {
     background-color: lightgreen;
   }
   .incorrect-response {
     background-color: tomato;
+  }
+  .flash {
+    animation: flash 0.2s forwards;
+  }
+
+  .feedback {
+    position: absolute;
+    bottom: 0;
+  }
+
+  @keyframes flash {
+    from {
+      opacity: 0.2;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   

@@ -140,7 +140,7 @@ export default class Question {
             const answerField = el.querySelectorAll('.digit-display')
             console.log('answerField', answerField)
 
-           
+            const writtenFeedback = document.querySelector('.feedback')
 
 
             // get the boolean value of whether or not the submitted answer matched the correct answer
@@ -153,12 +153,26 @@ export default class Question {
                     if(element.classList.contains('incorrect-response')) {
                         element.classList.remove('incorrect-response')
                     }
-                    
                     element.classList.add('correct-response')
                 })
+                writtenFeedback.innerHTML = 'Correct!'
+                writtenFeedback.style.color = 'green'
             } else {
-                Array.from(answerField).forEach(element => element.classList.add('incorrect-response')) 
-                
+                Array.from(answerField).forEach(element => {
+                    element.classList.add('incorrect-response')
+                    // if the user tries to enter the same incorrect response
+                    // or a different incorrect response,
+                    // then make the UI top row flash red
+                    // to show that the answer is still incorrect
+                    element.classList.add('flash')
+                    setTimeout(() => {
+                        element.classList.remove('flash')
+                    }, 500)
+
+                writtenFeedback.innerHTML = 'Incorrect answer. Please try again.'
+                writtenFeedback.style.color = 'tomato'
+                    
+                }) 
             }
         });
     }
