@@ -42,9 +42,6 @@ export const createCustomGrid = () => {
             button.classList.add(j, digits[i], 'number-button')
             button.innerHTML = j
             column.appendChild(button)
-
-            // add event an listener to butttons to populate the correct digit place article element
-
         }
     }
 }

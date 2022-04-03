@@ -84,6 +84,7 @@ export default class Question {
         const buttons = el.querySelectorAll('.number-button')
         // add a click event lister to each button to turn it blue when selected, and 
         // to populate the top row with the number selected
+        // and to to update the responses as the saved responses object 
         Array.from(buttons).forEach(button => {
             button.addEventListener('click', () => {
 
@@ -95,7 +96,7 @@ export default class Question {
                         button.classList.remove('selected')
                     }
                 })
-                       
+                // when pressed, 
                     if(button.classList.contains('hundreds')) {
                         const hundredsPlace = document.querySelector('#hundreds')
                         hundredsPlace.innerHTML = button.innerHTML
@@ -118,10 +119,7 @@ export default class Question {
         })
         
         
-
-        // TODO: Requires implementation - Make sure you trigger 'changed' event after users changes their responses
-        // trigger a changed event to watch for the changing values of each digit place as user interacts with UI
-
+        // trigger a changed event to watch for the changing values of each digit place in responses object as user interacts with UI
 
        events.trigger('changed', responses);
 
