@@ -39,6 +39,7 @@ $request = '{
         }
     ]
 }';
+
 $requestData = json_decode($request, true);
 
 $signedRequest = signAssessmentRequest($requestData);

@@ -47,7 +47,7 @@ export default class Question {
             lrnUtils.renderComponent('CheckAnswerButton', el.querySelector(`.${PREFIX}-checkAnswer-wrapper`))
         ]).then(([suggestedAnswersList]) => {
             this.suggestedAnswersList = suggestedAnswersList;
-            // callnig my createCustomGrid function which renders out the UI custom question with VanillaJS
+            // calling my createCustomGrid function which renders out the UI custom question with VanillaJS
             createCustomGrid()
            
         });
