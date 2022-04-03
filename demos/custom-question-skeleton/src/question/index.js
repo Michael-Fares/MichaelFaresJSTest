@@ -75,9 +75,9 @@ export default class Question {
         const { el, events } = this;
         
         let responses = {
-            "hundreds": "",
-            "tens": "",
-            "ones": "",   
+            "hundreds": null,
+            "tens": null,
+            "ones": null,   
         }
 
         // make and HTML collection of all buttons
@@ -100,19 +100,19 @@ export default class Question {
                     if(button.classList.contains('hundreds')) {
                         const hundredsPlace = document.querySelector('#hundreds')
                         hundredsPlace.innerHTML = button.innerHTML
-                        responses["hundreds"] = button.innerHTML
+                        responses["hundreds"] = Number(button.innerHTML)
                         button.classList.add('selected')
                     }
                     if(button.classList.contains('tens')) {
                         const tensPlace = document.querySelector('#tens')
                         tensPlace.innerHTML = button.innerHTML
-                        responses["tens"] = button.innerHTML
+                        responses["tens"] = Number(button.innerHTML)
                         button.classList.add('selected')
                     }
                     if(button.classList.contains('ones')) {
                         const onesPlace = document.querySelector('#ones')
                         onesPlace.innerHTML = button.innerHTML
-                        responses["ones"] = button.innerHTML
+                        responses["ones"] = Number(button.innerHTML)
                         button.classList.add('selected')
                     }
                 })

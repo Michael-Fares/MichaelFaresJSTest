@@ -1,4 +1,3 @@
-// Where do I put the question INIT JSON ?? putting it here did not do anything?
 
 console.log(`
 ==============================================================================================
@@ -10,46 +9,33 @@ Update the questionResponseJson with your question json & response
 
 // QuestionResponseJson that will be used to test your Scorer logic
 const questionResponseJson = {
-    question: {
-        response_id: 'box-and-whisker-response-id',
-        stimulus: 'Draw a <b>box &amp; whisker</b> chart for the following: <b>6, 2, 5, 3, 6, 10, 11, 6</b>',
-        type: 'custom',
-        js: {
-            question: '/dist/question.js',
-            scorer: '/dist/scorer.js'
-        },
-        css: '/dist/question.css',
-        line_min: 1,
-        line_max: 19,
-        step: 1,
-        min: 2,
-        max: 14,
-        quartile_1: 4,
-        median: 6,
-        quartile_3: 10,
-        score: 1,
-        valid_response: {
-            type: 'object',
+   question: {
+       response_id: 'custom-question-skeleton-response-id',
+       type: "custom",
+          stimulus: "What is 4 times 82?",
+          js: {
+            question: "/dist/question.js",
+            scorer: "/dist/scorer.js"
+          },
+          css: "/dist/question.css",
+          valid_response: {
+            type: "object",
             value: {
-                min: 4,
-                max: 8,
-                quartile_1: 5,
-                median: 6,
-                quartile_3: 7
+                "hundreds": 3,
+                "tens": 2,
+                "ones": 8,
             }
-        },
-        instant_feedback: true
-    },
-    response: {
-        type: 'object',
-        value: {
-            min: 4,
-            max: 8,
-            quartile_1: 5,
-            median: 6,
-            quartile_3: 7
-        }
+          },
+          "instant_feedback": true
+   },
+   response: {
+    type: "object",
+    value: {
+        "hundreds": 3,
+        "tens": 2,
+        "ones": 8,
     }
+   }
 };
 
 // Path to the scorer file that you need to debug
