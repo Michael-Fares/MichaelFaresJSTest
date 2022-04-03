@@ -64,6 +64,8 @@ export default class Question {
         // Attach the methods you want on this object
         const facade = init.getFacade();
 
+        console.log('facade inside registerPublicMethods', facade)
+
         facade.disable = () => {
             this.disabled = true
         };
@@ -73,7 +75,7 @@ export default class Question {
     }
 
     handleEvents() {
-        const { el, events } = this;
+        const { el, events, init } = this;
         
         let responses = {
             "hundreds": null,
@@ -130,7 +132,11 @@ export default class Question {
         // The value showCorrectAnswers by default is the value of showCorrectAnswers inside initOptions object that is used
         // to initialize question app or the value of the options that is passed into public method validate (like question.validate({showCorrectAnswers: false}))
         events.on('validate', options => {
-            console.log('response at question', responses)
+         
+            const result = init.getFacade().isValid()
+
+            console.log('result', result)
+
         });
     }
 }
