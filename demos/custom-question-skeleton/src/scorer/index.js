@@ -55,7 +55,7 @@ export default class Scorer {
      */
     maxScore() {
         // if the user scored a point (score() returns true)
-        // then assing the max possible score
+        // then assign the max possible score (1 point in the case of this question)
         // otherwise assign 0
         if(this.score()) return this.question.max_score
         return 0;

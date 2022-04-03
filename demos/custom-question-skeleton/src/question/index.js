@@ -26,11 +26,9 @@ export default class Question {
     render() {
         const { el, init, lrnUtils } = this;
         const { question, response } = init;
-        console.log('init', init)
-        
 
-        // TODO: Requires implementation
-
+        // adding a div custom question wrapper element in which to render the custom grid component UI
+        // rendered by calling createCustomGrid() on line 50
         el.innerHTML = `
             <div class="${PREFIX} lrn-response-validation-wrapper">
                 <div class="lrn_response_input"> 
@@ -64,8 +62,6 @@ export default class Question {
         // Attach the methods you want on this object
         const facade = init.getFacade();
 
-        console.log('facade inside registerPublicMethods', facade)
-
         facade.disable = () => {
             // implemeneted as in the 'box-and-whisker' example
             this.disabled = true
@@ -89,7 +85,7 @@ export default class Question {
         const buttons = el.querySelectorAll('.number-button')
         // add a click event lister to each button to turn it blue when selected, and 
         // to populate the top row with the number selected
-        // and to to update the responses as the saved responses object 
+        // and to update the responses as the saved responses object watched by the 'changed' event triger on line 122
         Array.from(buttons).forEach(button => {
             button.addEventListener('click', () => {
 
@@ -122,10 +118,8 @@ export default class Question {
                     }
                 })
         })
-        
-        console.log('init on line question/index 124',init.getFacade().checkValidation())
-        
-        // trigger a changed event to watch for the changing values of each digit place in responses object as user interacts with UI
+                
+     // trigger a changed event to watch for the changing values of each digit place in responses object as user interacts with UI
 
        events.trigger('changed', responses);
 
@@ -138,16 +132,15 @@ export default class Question {
             // piece of UI to change, which is the 
             // 3 article element digit placeholders at the top of each column (top row)
             const answerField = el.querySelectorAll('.digit-display')
-            console.log('answerField', answerField)
-
+            // get the written feedback display in order to show custom written feeback to user
+            // in addition to UI color changes
             const writtenFeedback = document.querySelector('.feedback')
-
-
             // get the boolean value of whether or not the submitted answer matched the correct answer
             const result = init.getFacade().isValid()
-            console.log('result true of false???', result)
             
-
+            // if the result is correct (value of result === true) then toggle the correct response classname
+            // to turn the top row green
+            // and provide the appropriate written feedback to user ("Correct!")
             if(result) {
                 Array.from(answerField).forEach(element => {
                     if(element.classList.contains('incorrect-response')) {
@@ -168,7 +161,7 @@ export default class Question {
                     setTimeout(() => {
                         element.classList.remove('flash')
                     }, 500)
-
+                // provide and style the appropriate written feedback to user e.g "Incorrect answer ..."
                 writtenFeedback.innerHTML = 'Incorrect answer. Please try again.'
                 writtenFeedback.style.color = 'tomato'
                     
