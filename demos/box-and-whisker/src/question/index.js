@@ -94,6 +94,8 @@ export default class BoxAndWhiskerQuestion {
         events.on('validate', options => {
             const detailedValidatedResult = init.getFacade().isValid(true);
 
+            console.log('detailedValidatedResult', detailedValidatedResult)
+
             bnw.clearValidationUI();
             bnw.renderValidationUI(detailedValidatedResult);
 
