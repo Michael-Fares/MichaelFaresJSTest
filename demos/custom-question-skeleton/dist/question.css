@@ -1,0 +1,78 @@
+/*!*******************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js!../node_modules/sass-loader/dist/cjs.js!./styles.css ***!
+  \*******************************************************************************************************/
+.lrn_stimulus_content, .digit-display {
+  font-weight: bold;
+}
+
+.question-wrapper {
+  margin: 0 3rem;
+  max-width: 600px;
+}
+
+.grid-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+#hundreds {
+  border-left: 1px solid black;
+}
+
+#ones {
+  border-right: 1px solid black;
+}
+
+.number-button {
+  background-color: lightgrey;
+  padding: 0.25rem;
+  border: 1px solid #777;
+  transition: ease all 0.5s;
+}
+
+.selected {
+  background-color: royalblue;
+}
+
+.digit-display {
+  text-align: center;
+  border-top: 1px solid black;
+  min-height: 2.5rem;
+  padding-top: 0.5rem;
+  transition: ease 0.5s all;
+}
+
+.correct-response {
+  background-color: lightgreen;
+}
+
+.incorrect-response {
+  background-color: tomato;
+}
+
+.flash {
+  animation: flash 0.2s forwards;
+}
+
+.feedback {
+  position: absolute;
+  bottom: 0;
+}
+
+@keyframes flash {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*!************************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js!../node_modules/sass-loader/dist/cjs.js!../scss/main.scss ***!
+  \************************************************************************************************************/
+
