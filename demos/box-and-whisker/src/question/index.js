@@ -19,11 +19,13 @@ export default class BoxAndWhiskerQuestion {
 
             init.events.trigger('ready');
         });
+       
     }
 
     render() {
         const { el, init, lrnUtils } = this;
         const { question, response } = init;
+        console.log('init', init)
 
         el.innerHTML = `
             <div class="lrn-bnw lrn-response-validation-wrapper">
@@ -73,6 +75,7 @@ export default class BoxAndWhiskerQuestion {
         bnw.registerEvents({
             onChange(responses) {
                 events.trigger('changed', responses);
+                console.log('responses', responses)
             },
             onValidationUICleared() {
                 if (suggestedAnswersList) {
