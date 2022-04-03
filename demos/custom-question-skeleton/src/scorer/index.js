@@ -69,25 +69,18 @@ export default class Scorer {
      * @returns {boolean}
      */
     canValidateResponse() {
+        // destructure the response object to work with it individually
         const { response } = this
-        // Once again get the values, for the hundreds, tens, and ones the
-        // user submitted as the saved responses object
-        // as an array by passing this.response.value into the Object.values method
-        // and then join that array into string
-        // and save to a varible called usersResponse
-        // the number result of the question needs to be 3 digits
-        // so if the lenth of the userResponse string is less than 3
-        // this function should return false
-
-       console.log('response at canValidateResponse()', response)
-
+       
+       // loop over the response object submitted by the user
+       // checking to make sure the hundreds, tens, and ones places each contain a value
+       // if any of them contain null, then return false
        for(let key in response) {
            if(!response[key]) {
-               console.log('cant validate')
                return false
            }
        }
-       console.log('can validate')
+       // else, return true
        return true
     }
 }
