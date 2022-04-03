@@ -75,9 +75,9 @@ export default class Question {
         const { el, events } = this;
         
         let responses = {
-            "hundreds": 0,
-            "tens": 0,
-            "ones": 0,   
+            "hundreds": null,
+            "tens": null,
+            "ones": null,   
         }
 
         // make and HTML collection of all buttons

@@ -15,10 +15,9 @@ export default class Scorer {
         // as an array by passing this.response.value into the Object.values method
         // and then join that array into string
         // and save to a varible called usersResponse
-        const usersResponse = Object.values(this.response.value).join("")
-        
+        const userResponse = Object.values(this.response.value).join("")
         // return true if it is equal to the valid response supplied on the question JSON
-        if(this.question.valid_response === usersResponse) return true
+        if(this.question.valid_response === userResponse) return true
         // otherwise return false
 
         return false;
@@ -42,7 +41,11 @@ export default class Scorer {
      * @returns {number|null}
      */
     score() {
-        // TODO: Requires implementation
+        // if the isValid function returns true
+        // then assign the user the max_score
+        // from the question JSON (my max score was 1)
+        // else return 0
+        if(this.isValid()) return this.question.max_score
         return 0;
     }
 
@@ -51,7 +54,10 @@ export default class Scorer {
      * @returns {number}
      */
     maxScore() {
-        // TODO: Requires implementation
+        // if the user scored a point (score() returns true)
+        // then assing the max possible score
+        // otherwise assign 0
+        if(this.score()) return this.question.max_score
         return 0;
     }
 
@@ -63,6 +69,16 @@ export default class Scorer {
      * @returns {boolean}
      */
     canValidateResponse() {
+        // Once again get the values, for the hundreds, tens, and ones the
+        // user submitted as the saved responses object
+        // as an array by passing this.response.value into the Object.values method
+        // and then join that array into string
+        // and save to a varible called usersResponse
+        // the number result of the question needs to be 3 digits
+        // so if the lenth of the userResponse string is less than 3
+        // this function should return false
+        const userResponse = Object.values(this.response.value).join("")
+        if(userResponse.length < 3) return false
         return true;
     }
 }
