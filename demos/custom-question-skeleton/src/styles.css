@@ -33,5 +33,12 @@
     background-color: royalblue;
   }
 
+  .correct-response {
+    background-color: lightgreen;
+  }
+  .incorrect-response {
+    background-color: tomato;
+  }
+
   
   

@@ -132,10 +132,22 @@ export default class Question {
         // The value showCorrectAnswers by default is the value of showCorrectAnswers inside initOptions object that is used
         // to initialize question app or the value of the options that is passed into public method validate (like question.validate({showCorrectAnswers: false}))
         events.on('validate', options => {
-         
+            // piece of UI to change, which is the 
+            // 3 article element digit placeholders at the top of each column (top row)
+            const answerField = el.querySelectorAll('.digit-display')
+            console.log('answerField', answerField)
+
+           
+
+
+            // get the boolean value of whether or not the submitted answer matched the correct answer
             const result = init.getFacade().isValid()
 
-            console.log('result', result)
+            if(result) {
+                Array.from(answerField).forEach(element => element.classList.toggle('correct-response'))
+            }
+
+            Array.from(answerField).forEach(element => element.classList.toggle('incorrect-response'))            
 
         });
     }
