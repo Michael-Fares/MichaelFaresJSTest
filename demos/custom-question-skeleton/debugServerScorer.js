@@ -27,7 +27,7 @@ const questionResponseJson = {
     value: {
         "hundreds": 3,
         "tens": 2,
-        "ones": 8,
+        "ones": null,
     }
    }
 };

@@ -67,9 +67,11 @@ export default class Question {
         console.log('facade inside registerPublicMethods', facade)
 
         facade.disable = () => {
+            // implemeneted as in the 'box-and-whisker' example
             this.disabled = true
         };
         facade.enable = () => {
+             // implemeneted as in the 'box-and-whisker' example
             this.disabled = false
         };
     }
@@ -121,6 +123,7 @@ export default class Question {
                 })
         })
         
+        console.log('init on line question/index 124',init.getFacade().checkValidation())
         
         // trigger a changed event to watch for the changing values of each digit place in responses object as user interacts with UI
 
@@ -142,13 +145,21 @@ export default class Question {
 
             // get the boolean value of whether or not the submitted answer matched the correct answer
             const result = init.getFacade().isValid()
+            console.log('result true of false???', result)
+            
 
             if(result) {
-                Array.from(answerField).forEach(element => element.classList.toggle('correct-response'))
+                Array.from(answerField).forEach(element => {
+                    if(element.classList.contains('incorrect-response')) {
+                        element.classList.remove('incorrect-response')
+                    }
+                    
+                    element.classList.add('correct-response')
+                })
+            } else {
+                Array.from(answerField).forEach(element => element.classList.add('incorrect-response')) 
+                
             }
-
-            Array.from(answerField).forEach(element => element.classList.toggle('incorrect-response'))            
-
         });
     }
 }

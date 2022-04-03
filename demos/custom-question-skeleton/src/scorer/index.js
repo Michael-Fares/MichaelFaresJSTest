@@ -68,23 +68,32 @@ export default class Scorer {
      * - If this question type is not scorable (like an essay or open ended question) then this will return false
      * @returns {boolean}
      */
-    canValidateResponse() {
-        // Once again get the values, for the hundreds, tens, and ones the
-        // user submitted as the saved responses object
-        // as an array by passing this.response.value into the Object.values method
-        // and then join that array into string
-        // and save to a varible called usersResponse
-        // the number result of the question needs to be 3 digits
-        // so if the lenth of the userResponse string is less than 3
-        // this function should return false
+    // canValidateResponse() {
+    //     // const { response } = this
+    //     // Once again get the values, for the hundreds, tens, and ones the
+    //     // user submitted as the saved responses object
+    //     // as an array by passing this.response.value into the Object.values method
+    //     // and then join that array into string
+    //     // and save to a varible called usersResponse
+    //     // the number result of the question needs to be 3 digits
+    //     // so if the lenth of the userResponse string is less than 3
+    //     // this function should return false
 
-            // commenting the two lines below out because
-            // they broke the question rendering for some reason
-            // but the logic in the test passed
+    //         // commenting the two lines below out because
+    //         // they broke the question rendering for some reason
+    //         // but the logic in the test passed
 
-        // const userResponse = Object.values(this.response.value).join("")
-        // if(userResponse.length !== 3) return false
+    //     // if(!response) {
+    //     //     console.log('no response provided')
+    //     //     return false
+    //     // }
 
-        return true;
-    }
+    // //    for(let key in response) {
+    // //        console.log('response[key]', response[key])
+    // //        if(response[key] === null) return false
+    // //        else return true;
+    // //    }
+
+        
+    // }
 }
