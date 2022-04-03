@@ -77,8 +77,12 @@ export default class Scorer {
         // the number result of the question needs to be 3 digits
         // so if the lenth of the userResponse string is less than 3
         // this function should return false
-        const userResponse = Object.values(this.response.value).join("")
-        if(userResponse.length < 3) return false
+
+            // commenting the two lines below out because they broke the code
+
+        // const userResponse = Object.values(this.response.value).join("")
+        // if(userResponse.length < 3) return false
+
         return true;
     }
 }
