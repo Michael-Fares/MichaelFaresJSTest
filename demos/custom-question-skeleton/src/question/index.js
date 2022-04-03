@@ -26,6 +26,7 @@ export default class Question {
     render() {
         const { el, init, lrnUtils } = this;
         const { question, response } = init;
+        console.log('init', init)
         
 
         // TODO: Requires implementation
@@ -96,7 +97,7 @@ export default class Question {
                         button.classList.remove('selected')
                     }
                 })
-                // when pressed, 
+                    // when the individual button is clicked, turn it blue and populate its corresponding top row
                     if(button.classList.contains('hundreds')) {
                         const hundredsPlace = document.querySelector('#hundreds')
                         hundredsPlace.innerHTML = button.innerHTML
@@ -122,6 +123,10 @@ export default class Question {
         // trigger a changed event to watch for the changing values of each digit place in responses object as user interacts with UI
 
        events.trigger('changed', responses);
+
+       this.init.response = Object.values(responses).join("")
+
+       console.log(this.init.response)
 
        
 

@@ -68,4 +68,5 @@ TEST OUTPUT
     console.log('validateIndividualResponses:', scorer.validateIndividualResponses());
     console.log('score:', scorer.score());
     console.log('score:', scorer.maxScore());
+    console.log('canValidateResponse:', scorer.canValidateResponse());
 }

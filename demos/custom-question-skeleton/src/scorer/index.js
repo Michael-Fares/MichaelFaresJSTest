@@ -15,6 +15,7 @@ export default class Scorer {
         // as an array by passing this.response.value into the Object.values method
         // and then join that array into string
         // and save to a varible called usersResponse
+
         const userResponse = Object.values(this.response.value).join("")
         // return true if it is equal to the valid response supplied on the question JSON
         if(this.question.valid_response === userResponse) return true
@@ -78,10 +79,12 @@ export default class Scorer {
         // so if the lenth of the userResponse string is less than 3
         // this function should return false
 
-            // commenting the two lines below out because they broke the code
+            // commenting the two lines below out because
+            // they broke the question rendering for some reason
+            // but the logic in the test passed
 
         // const userResponse = Object.values(this.response.value).join("")
-        // if(userResponse.length < 3) return false
+        // if(userResponse.length !== 3) return false
 
         return true;
     }
