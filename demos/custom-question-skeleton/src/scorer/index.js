@@ -76,7 +76,7 @@ export default class Scorer {
        // checking to make sure the hundreds, tens, and ones places each contain a value
        // if any of them contain null, then return false
        for(let key in response) {
-           if(!response[key]) {
+           if(response[key] === null) {
                return false
            }
        }

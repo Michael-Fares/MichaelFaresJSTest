@@ -23,13 +23,11 @@ const questionResponseJson = {
           max_score: 1
    },
    response: {
-    type: "object",
-    value: {
         "hundreds": 3,
         "tens": 2,
-        "ones": null,
-    }
+        "ones": 0,
    }
+   
 };
 
 // Path to the scorer file that you need to debug
