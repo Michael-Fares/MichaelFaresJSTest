@@ -9,7 +9,6 @@ export default class Question {
         this.init = init;
         this.events = init.events;
         this.lrnUtils = lrnUtils;
-        // appears to be using JQuery? $
         this.el = init.$el.get(0);
 
         this.render().then(() =>{
@@ -27,13 +26,14 @@ export default class Question {
     render() {
         const { el, init, lrnUtils } = this;
         const { question, response } = init;
+        
 
         // TODO: Requires implementation
 
         el.innerHTML = `
             <div class="${PREFIX} lrn-response-validation-wrapper">
-                <div class="lrn_response_input">
-                  <div class="question-wrapper"></div>  
+                <div class="lrn_response_input"> 
+                    <div class="question-wrapper"></div>
                 </div>            
                 <div class="${PREFIX}-checkAnswer-wrapper"></div>
                 <div class="${PREFIX}-suggestedAnswers-wrapper"></div>
@@ -47,6 +47,7 @@ export default class Question {
             lrnUtils.renderComponent('CheckAnswerButton', el.querySelector(`.${PREFIX}-checkAnswer-wrapper`))
         ]).then(([suggestedAnswersList]) => {
             this.suggestedAnswersList = suggestedAnswersList;
+            // callnig my createCustomGrid function which renders out the UI custom question with VanillaJS
             createCustomGrid()
            
         });
@@ -63,18 +64,68 @@ export default class Question {
         const facade = init.getFacade();
 
         facade.disable = () => {
-            // TODO: Requires implementation
+            this.disabled = true
         };
         facade.enable = () => {
-            // TODO: Requires implementation
+            this.disabled = false
         };
     }
 
     handleEvents() {
-        const { events } = this;
+        const { el, events } = this;
+        
+        let responses = {
+            "hundreds": "",
+            "tens": "",
+            "ones": "",   
+        }
+
+        // make and HTML collection of all buttons
+        const buttons = el.querySelectorAll('.number-button')
+        // add a click event lister to each button to turn it blue when selected, and 
+        // to populate the top row with the number selected
+        Array.from(buttons).forEach(button => {
+            button.addEventListener('click', () => {
+
+                // if there is a button already selected in the column
+                // then deselect it before selecting the button just clicked
+                const otherButtons = button.parentNode.children
+                Array.from(otherButtons).forEach((button) => {
+                    if(button.classList.contains('selected')) {
+                        button.classList.remove('selected')
+                    }
+                })
+                       
+                    if(button.classList.contains('hundreds')) {
+                        const hundredsPlace = document.querySelector('#hundreds')
+                        hundredsPlace.innerHTML = button.innerHTML
+                        responses["hundreds"] = button.innerHTML
+                        button.classList.add('selected')
+                    }
+                    if(button.classList.contains('tens')) {
+                        const tensPlace = document.querySelector('#tens')
+                        tensPlace.innerHTML = button.innerHTML
+                        responses["tens"] = button.innerHTML
+                        button.classList.add('selected')
+                    }
+                    if(button.classList.contains('ones')) {
+                        const onesPlace = document.querySelector('#ones')
+                        onesPlace.innerHTML = button.innerHTML
+                        responses["ones"] = button.innerHTML
+                        button.classList.add('selected')
+                    }
+                })
+        })
+        
+        
 
         // TODO: Requires implementation - Make sure you trigger 'changed' event after users changes their responses
-        // events.trigger('changed', responses);
+        // trigger a changed event to watch for the changing values of each digit place as user interacts with UI
+
+
+       events.trigger('changed', responses);
+
+       
 
 
         // "validate" event can be triggered when Check Answer button is clicked or when public method .validate() is called
@@ -83,7 +134,7 @@ export default class Question {
         // The value showCorrectAnswers by default is the value of showCorrectAnswers inside initOptions object that is used
         // to initialize question app or the value of the options that is passed into public method validate (like question.validate({showCorrectAnswers: false}))
         events.on('validate', options => {
-            // TODO: Requires implementation
+            console.log(responses)
         });
     }
 }

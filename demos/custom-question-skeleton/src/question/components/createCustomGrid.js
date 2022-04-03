@@ -45,33 +45,6 @@ export const createCustomGrid = () => {
 
             // add event an listener to butttons to populate the correct digit place article element
 
-            button.addEventListener('click', () => {
-
-            // if there is a button already selected in the column
-            // then deselect it before selecting the button just clicked
-            const otherButtons = button.parentNode.children
-            Array.from(otherButtons).forEach((button) => {
-                if(button.classList.contains('selected')) {
-                    button.classList.remove('selected')
-                }
-            })
-                   
-                if(button.classList.contains('hundreds')) {
-                    const hundredsPlace = document.querySelector('#hundreds')
-                    hundredsPlace.innerHTML = button.innerHTML
-                    button.classList.add('selected')
-                }
-                if(button.classList.contains('tens')) {
-                    const tensPlace = document.querySelector('#tens')
-                    tensPlace.innerHTML = button.innerHTML
-                    button.classList.add('selected')
-                }
-                if(button.classList.contains('ones')) {
-                    const onesPlace = document.querySelector('#ones')
-                    onesPlace.innerHTML = button.innerHTML
-                    button.classList.add('selected')
-                }
-            })
         }
     }
 }
